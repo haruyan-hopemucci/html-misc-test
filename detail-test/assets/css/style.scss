@@ -4,7 +4,9 @@
 details{
   margin: 1rem;
 }
-
+summary{
+  font-weight: bold;
+}
 .case2{
   border: 1px solid #aaa;
   border-radius: 1rem;
@@ -13,7 +15,7 @@ details{
     margin: 1rem;
   }
   p{
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 2rem;
   }
 }
 
@@ -26,13 +28,13 @@ details{
   background: transparent;
   height: 3rem;
   &[open]{
-    border: 1px solid #aaa;
+    // border: 1px solid #aaa;
     height: auto;
     background: #eee;
     &::after{
       content: "";
       position: absolute;
-      border-right: 1rem solid #aaa;
+      border-right: 1rem solid #eee;
       border-top: 1rem solid transparent;
       border-bottom: 1rem solid transparent;
       border-left: 1rem solid transparent;
@@ -48,12 +50,13 @@ details{
     display: block;
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #aaa;
+    // border: 1px solid #aaa;
     border-radius: 1rem;
     background: #eee;
     }
   p{
     margin: 1rem;
+    padding: 1rem;
   }
 }
 .case4{
@@ -70,6 +73,32 @@ details{
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    background: rgba(#000, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p{
+    margin: 10rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #eee;
+  }
+}
+
+.case5{
+  border: 1px solid #aaa;
+  border-radius: 1rem;
+  background: #eee;
+  summary{
+    margin: 1rem;
+  }
+  div.backdrop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(#000, 0.25);
     display: flex;
     align-items: center;
