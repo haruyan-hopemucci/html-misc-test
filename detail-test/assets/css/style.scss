@@ -71,6 +71,9 @@ details{
     height: 100vh;
     pointer-events: none;
     background: rgba(#000, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   p{
     margin: 10rem;
