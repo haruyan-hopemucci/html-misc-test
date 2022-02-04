@@ -1,0 +1,68 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+}
+header{
+  h1{
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+main{
+  width: 1280px;
+  margin: 0 auto;
+}
+div.main-visual{
+  width: 75%;
+  margin: 0 auto;
+  img{
+    width: 100%;
+  }
+}
+div.main-menu-wrap{
+  position: relative;
+}
+nav.main-menu{
+  position: absolute;
+  width: 256px;
+  height: 240px;
+  left: calc(50% - 128px);
+  top: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: height .5s ease;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+  ul{
+    display: flex;
+    li{
+      width: 64px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  &.out-of-window{
+    position: fixed;
+    left: calc( 50% - 128px);
+    top: 0;
+    height: 68px;
+    &:hover{
+      height: 240px;
+    }
+  }
+}
+div.dummy-margin{
+  height: 480px;
+}
+section.dummy{
+  &::before{
+    content: "ダミーコンテンツ";
+  }
+  height: 50vh;
+  width: 100%;
+  border: 1px solid #ccc;
+}

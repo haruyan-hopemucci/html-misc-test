@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/destyle.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>縦書きメニューテスト</title>
+</head>
+<body>
+  <header>
+    <h1>Enjoy Shopping</h1>
+  </header>
+  <main>
+    <div class="main-visual">
+      <img src="assets/img/main-visual.jpg" alt="">
+    </div>
+    <div class="main-menu-wrap">
+      <nav class="main-menu">
+        <ul>
+          <li>
+            <a href="#"><img src="assets/img/menu1.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"><img src="assets/img/menu2.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"><img src="assets/img/menu3.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"><img src="assets/img/menu4.png" alt=""></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="dummy-margin"></div>
+    <section class="dummy">          </section>
+    <section class="dummy">          </section>
+    <section class="dummy">          </section>
+    <script>
+      function setIntersect(){
+        let options = {
+          root: null, // rootをnullにすると監視ルートがwindowになる
+          rootMargin: '0px',
+          threshold: 1.0  // 完全に非表示になったとき
+        };
+        let observer = new IntersectionObserver( (entries, observer) => {
+          // 交差が発生したときの処理
+          console.log('out',entries, observer);
+          const entry = entries[0];
+          const target = entry.target;
+          if(entry.isIntersecting == false){
+            target.classList.add("out-of-window");
+          }
+        }, options);
+        let target = document.querySelector('nav.main-menu');
+        observer.observe(target);
+
+        let options2 = {
+          root: null, // rootをnullにすると監視ルートがwindowになる
+          rootMargin: '0px',
+          threshold: 0.0  // 完全に非表示になったとき
+        }
+        let observer2 = new IntersectionObserver( (entries, observer) => {
+          console.log('in',entries, observer);
+          const entry = entries[0];
+          const target = document.querySelector('nav.main-menu');
+          if(entry.isIntersecting == true){
+            target.classList.remove("out-of-window");
+          }
+        },options2);
+        let target2 = document.querySelector('div.main-visual');
+        observer2.observe(target2);
+      }
+
+      setIntersect();
+    </script>
+  </main>
+</body>
+</html>
