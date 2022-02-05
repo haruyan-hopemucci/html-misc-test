@@ -49,7 +49,11 @@
           console.log('out',entries, observer);
           const entry = entries[0];
           const target = entry.target;
-          if(entry.isIntersecting == false){
+          // 以下のコメントにある場合のみ折り畳みクラスを付与する。
+          // 対象の要素が上側に見切れる場合のみ折り畳みをしたいため。
+          if(entry.isIntersecting == false          // 表示から非表示側へ交差する場合
+              && entry.boundingClientRect.y <= 0    // 画面の上側で交差する場合（表示要素のビューポートに対するy(top)が0以下になる）場合
+          ){
             target.classList.add("out-of-window");
           }
         }, options);
@@ -73,7 +77,8 @@
         observer2.observe(target2);
       }
 
-      setIntersect();
+      window.addEventListener('load', ()=>setIntersect());
+      // setIntersect();
     </script>
   </main>
 </body>
